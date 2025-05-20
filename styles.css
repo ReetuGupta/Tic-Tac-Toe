@@ -1,0 +1,263 @@
+*,
+*::after, 
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+}
+
+body{
+    max-width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    color: #fdf6e3e7;
+}
+
+#wrapper{
+    width: 95%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -5; /* behind content */
+} 
+
+ .bubbles span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  animation: bubble 20s linear infinite;
+  bottom: -150px;
+}
+
+/* Randomize positions and sizes */
+ .bubbles span:nth-child(1) {
+  left: 10%;
+  width: 25px;
+  height: 25px;
+  animation-duration: 15s;
+}
+.bubbles span:nth-child(2) {
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  animation-duration: 20s;
+}
+.bubbles span:nth-child(3) {
+  left: 30%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 25s;
+}
+.bubbles span:nth-child(4) {
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  animation-duration: 18s;
+}
+.bubbles span:nth-child(5) {
+  left: 70%;
+  width: 22px;
+  height: 22px;
+  animation-duration: 22s;
+}
+.bubbles span:nth-child(6) {
+  left: 80%;
+  width: 18px;
+  height: 18px;
+  animation-duration: 17s;
+}
+.bubbles span:nth-child(7) {
+  left: 90%;
+  width: 28px;
+  height: 28px;
+  animation-duration: 26s;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-1000px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.player{
+    position: absolute;
+    left: 50%;
+    top: 5rem;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.155);
+    border: 1px solid rgba(255, 255, 255, 0.255);
+    border-radius: 1rem;
+    padding: 0.3rem 1rem;
+    font-size: 1.8rem;
+}
+
+.tic-tac-toe{
+    width: 80%;
+    max-width: 28rem;
+    margin-top: 4rem;
+    background-color: rgba(255, 255, 255, 0.155);
+    border: 1px solid rgba(255, 255, 255, 0.255);
+    border-radius: 1rem;
+    aspect-ratio: 1/1;
+    box-shadow: 0 0 20px #13547a;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+}
+
+.box{
+  width: 100%;
+  font-size: 5rem;
+  font-weight: 200;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  color: #000;
+  cursor: pointer;
+}
+
+.box1,.box2,.box4,.box5{
+  border-right: 6px solid #fdf6e3e7;
+  border-bottom: 6px solid #fdf6e3e7;
+}
+
+.box3, .box6{
+  border-bottom: 6px solid #fdf6e3e7;
+}
+
+.box7, .box8{
+    border-right: 6px solid #fdf6e3e7;
+}
+
+.win{
+  background-color: rgba(0, 128, 0, 0.785);
+}
+
+button{
+    background-color: rgba(255, 255, 255, 0.155);
+    border: 1px solid rgba(255, 255, 255, 0.255);
+    padding: 0.3rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    color: #fdf6e3e7;
+    display: none;
+}
+
+button:hover,
+button:active{
+    transform: scale(1.1);
+    background-color: #13547a43;
+    color: white;
+    border: 3px solid ;
+    box-shadow: 1px 1px 20px #fdf6e3e7;
+}
+
+button.active{
+  display: flex;
+}
+
+footer{
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-55%);
+}
+
+footer p{
+  text-align: center;
+  font-weight: 300;
+  word-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .player {
+    font-size: 1rem;
+    top: 3.5rem;
+  }
+
+  .tic-tac-toe {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+  }
+
+  .box {
+    font-size: 3rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+@media(min-width:601px) and (max-width: 900px){
+  h1 {
+    font-size: 2rem;
+  }
+
+  .player {
+    font-size: 1.5rem;
+    top: 3.5rem;
+  }
+
+  .tic-tac-toe {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+  }
+
+  .box {
+    font-size: 4rem;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+}
